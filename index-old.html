@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Index</title>
-    </head>
-    <body>
-        <div id="imperativeApp"></div>
-        <div id="app"></div>
-        <div id="componentApp"></div>
-        <script type="text/javascript" src="js/imperative.js"></script>
-        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-        <script type="text/jsx">
-            // Declarative JS
-            const app = document.getElementById("app");
-            ReactDOM.render(
-                <div>
-                    <h1>Develop. Preview. Ship. 🚀 - The Declarative and ReactJS way!</h1>
-                </div>
-            , app);
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Index</title>
+	</head>
+	<body>
+		<div id="imperativeApp"></div>
+		<div id="app"></div>
+		<div id="componentApp"></div>
+		<script type="text/javascript" src="js/imperative.js"></script>
+		<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script type="text/jsx">
+			// Declarative JS
+			const app = document.getElementById("app");
+			ReactDOM.render(
+			    <div>
+			        <h1>Develop. Preview. Ship. 🚀 - The Declarative and ReactJS way!</h1>
+			    </div>
+			, app);
 
-            // Component Reactjs
-            const componentApp = document.getElementById("componentApp");
+			// Component Reactjs
+			const componentApp = document.getElementById("componentApp");
 
-            function ComponentHeader({title}) {
-                console.log(title)
-                return(<h1>{title ? title : 'Default title'}</h1>)
-            }
+			function ComponentHeader({title}) {
+			    console.log(title)
+			    return(<h1>{title ? title : 'Default title'}</h1>)
+			}
 
-            function HomePage() {
-                const [likes, setLikes] = React.useState(0);
-                console.log(typeof(likes))
-                const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+			function HomePage() {
+			    const [likes, setLikes] = React.useState(0);
+			    console.log(typeof(likes))
+			    const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
 
-                function handleClick() {
-                    setLikes(likes + 1);
-                }
+			    function handleClick() {
+			        setLikes(likes + 1);
+			    }
 
-                return (
-                    <div>
-                        {/* Nesting the ComponentHeader component */}
-                        <ComponentHeader title="React 💙"/>
-                        <ComponentHeader />
-                        <ul>
-                            {names.map((name) =>
-                                <li>key={name}>{name}</li>
-                            )}
-                        </ul>
-                        <button onClick={handleClick}>Like ({likes})</button>
-                    </div>
+			    return (
+			        <div>
+			            {/* Nesting the ComponentHeader component */}
+			            <ComponentHeader title="React 💙"/>
+			            <ComponentHeader />
+			            <ul>
+			                {names.map((name) =>
+			                    <li>key={name}>{name}</li>
+			                )}
+			            </ul>
+			            <button onClick={handleClick}>Like ({likes})</button>
+			        </div>
 
-                );
-            }
+			    );
+			}
 
-            ReactDOM.render(<HomePage />, componentApp);
-        </script>
-    </body>
+			ReactDOM.render(<HomePage />, componentApp);
+		</script>
+	</body>
 </html>
